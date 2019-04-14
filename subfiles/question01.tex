@@ -4,4 +4,34 @@
 \begin{document}
 \section*{Question 1}
 
+\subsection*{(a)}
+
+\begin{center}
+  \begin{tabular}{|rcl|rcl|}
+      \hline
+      \multicolumn{3}{|c}{\bf Productions} &
+      \multicolumn{3}{|c|}{\bf Règles Sémantiques} \\
+      \hline
+      \hline
+      $S$ & $\rightarrow$ & $A$ & $S.ok$ & $=$ & $(A.sb \geq 1) \wedge (A.sc \geq 2)  $\\
+      \hline
+      $A$ & $\rightarrow$ & \lstinline[]$a$ $A_1$ & $A.sb$ & $=$ & $A_1.sb$\\
+          &               &                       & $A.sc$ & $=$ & $A_1.sc$\\
+      \hline      
+      $A$ & $\rightarrow$ & \lstinline[]$a$ $B$ & $A.sb$ & $=$ & $B.sb$\\
+          &               &                     & $A.sc$ & $=$ & $B.sc$\\
+      \hline
+      $B$ & $\rightarrow$ & \lstinline[]$b$ $B_1$ & $B.sb$ & $=$ & $B_1.sb + 1$\\
+          &               &                       & $B.sc$ & $=$ & $B_1.sc$\\
+      \hline
+      $B$ & $\rightarrow$ & $C$ & $B.sb$ & $=$ & $0$\\
+          &               &     & $B.sc$ & $=$ & $C.sc$\\
+      \hline
+      $C$ & $\rightarrow$ & \lstinline[]$c$ $C_1$ & $C.sc$ & $=$ & $C_1.sc + 1$\\
+      \hline
+      $C$ & $\rightarrow$ & $\epsilon$& $C.sc$ & $=$ & $0$\\
+      \hline
+  \end{tabular}
+\end{center}
+
 \end{document}
