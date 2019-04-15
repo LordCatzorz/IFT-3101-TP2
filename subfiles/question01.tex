@@ -85,5 +85,28 @@ Vérification négative avec le mot $\epsilon \notin L_1$
 \pagebreak
 
 \subsection*{(b)}
+\begin{center}
+  \begin{tabular}{|rcl|rcl|}
+      \hline
+      \multicolumn{3}{|c}{\bf Productions} &
+      \multicolumn{3}{|c|}{\bf Règles Sémantiques} \\
+      \hline
+      \hline
+      $S$ & $\rightarrow$ & $A$ & $A.hprev$ & $=$ & \lstinline[]$""$\\
+          &               &     & $S.ok$ & $=$ & $A.ok $\\
+      \hline
+      $A$ & $\rightarrow$ & \lstinline[]$a$ $A_1$ & $A_1.hprev$ & $=$ & \lstinline[]$"a"$\\
+          &               &                       & $A.ok$      & $=$ & $A_1.ok \wedge A.hprev \neq $\lstinline[]$"a"$\\
+      \hline
+      $A$ & $\rightarrow$ & \lstinline[]$b$ $A_1$ & $A_1.hprev$ & $=$ & \lstinline[]$"b"$\\
+          &               &                       & $A.ok$      & $=$ & $A_1.ok\wedge A.hprev \neq $\lstinline[]$"b"$\\
+      \hline
+      $A$ & $\rightarrow$ & \lstinline[]$c$ $A_1$ & $A_1.hprev$ & $=$ & \lstinline[]$"c"$\\
+          &               &                       & $A.ok$      & $=$ & $A_1.ok\wedge A.hprev \neq $\lstinline[]$"c"$\\
+      \hline
+      $A$ & $\rightarrow$ & $\epsilon$ & $A.ok$ & $=$ & $True$\\
+      \hline
+  \end{tabular}
+\end{center}
 
 \end{document}
