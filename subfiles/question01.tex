@@ -25,7 +25,7 @@
           &               &                       & $A.sc$ & $=$ & $A_1.sc + 1$\\
       \hline
       $A$ & $\rightarrow$ & $\epsilon$ & $A.sb$ & $=$ & $0$\\
-          &               &          & $A.sc$ & $=$ & $0$\\
+          &               &            & $A.sc$ & $=$ & $0$\\
       \hline
   \end{tabular}
 \end{center}
@@ -42,18 +42,18 @@ Vérification positive avec le mot $bcc \in L_1$
     \tikzset{edge from parent/.style={draw, edge from parent path=
     {(\tikzparentnode) -- (\tikzchildnode)}}}
     \Tree 
-    [.$S\tbox{Ok}{True}$ 
+    [.$S\tbox{ok}{true}$ 
       [.$A\tbox{sb}{1}\tbox{sc}{2}$
         [.$A_1\tbox{sb}{1}\tbox{sc}{2}$
           b
           [.$A_2\tbox{sb}{0}\tbox{sc}{2}$
+            c
+            [.$A_3\tbox{sb}{0}\tbox{sc}{1}$
               c
-              [.$A_3\tbox{sb}{0}\tbox{sc}{1}$
-                c
-                [.$A_4\tbox{sb}{0}\tbox{sc}{0}$
-                  $\epsilon$
-                ]
+              [.$A_4\tbox{sb}{0}\tbox{sc}{0}$
+                $\epsilon$
               ]
+            ]
           ]
         ]
       ]
@@ -70,13 +70,9 @@ Vérification négative avec le mot $\epsilon \notin L_1$
     \tikzset{edge from parent/.style={draw, edge from parent path=
     {(\tikzparentnode) -- (\tikzchildnode)}}}
     \Tree 
-    [.$S\tbox{Ok}{False}$ 
+    [.$S\tbox{ok}{false}$ 
       [.$A\tbox{sb}{0}\tbox{sc}{0}$
-        [.$A_1\tbox{sb}{0}\tbox{sc}{0}$
-          [.$A_2\tbox{sb}{0}\tbox{sc}{0}$
-            $\epsilon$
-          ]
-        ]
+        $\epsilon$
       ]
     ]
   \end{tikzpicture}
@@ -104,9 +100,51 @@ Vérification négative avec le mot $\epsilon \notin L_1$
       $A$ & $\rightarrow$ & \lstinline[]$c$ $A_1$ & $A_1.hprev$ & $=$ & \lstinline[]$"c"$\\
           &               &                       & $A.ok$      & $=$ & $A_1.ok\wedge A.hprev \neq $\lstinline[]$"c"$\\
       \hline
-      $A$ & $\rightarrow$ & $\epsilon$ & $A.ok$ & $=$ & $True$\\
+      $A$ & $\rightarrow$ & $\epsilon$ & $A.ok$ & $=$ & \lstinline[]$true$\\
       \hline
   \end{tabular}
+\end{center}
+
+Vérification positive avec le mot $\epsilon \in L_2$
+
+\begin{center}
+  \begin{tikzpicture}
+    [
+    sibling distance=2em, level distance=40pt]
+
+    \tikzset{edge from parent/.style={draw, edge from parent path=
+    {(\tikzparentnode) -- (\tikzchildnode)}}}
+    \Tree 
+    [.$S\tbox{ok}{true}$ 
+      [.$\tbox{hprev}{""}A\tbox{ok}{true}$
+        $\epsilon$
+      ]
+    ]
+  \end{tikzpicture}
+\end{center}
+
+Vérification positive avec le mot $aa \notin L_2$
+
+\begin{center}
+  \begin{tikzpicture}
+    [
+    sibling distance=2em, level distance=40pt]
+
+    \tikzset{edge from parent/.style={draw, edge from parent path=
+    {(\tikzparentnode) -- (\tikzchildnode)}}}
+    \Tree 
+    [.$S\tbox{ok}{false}$ 
+      [.$\tbox{hprev}{""}A\tbox{ok}{false}$
+        a
+        [.$\tbox{hprev}{"a"}A\tbox{ok}{false}$
+          a
+          [.$\tbox{hprev}{"a"}A\tbox{ok}{true}$
+            $\epsilon$
+          ]
+        ]
+      ]
+    ]
+  \end{tikzpicture}
 \end{center}
 
 \end{document}
