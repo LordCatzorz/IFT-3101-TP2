@@ -18,8 +18,8 @@
       $A$ & $\rightarrow$ & \lstinline[]$a$ $A_1$ & $A.sb$ & $=$ & $A_1.sb$\\
           &               &                       & $A.sc$ & $=$ & $A_1.sc$\\
       \hline      
-      $A$ & $\rightarrow$ & \lstinline[]$a$ $B$ & $A.sb$ & $=$ & $B.sb$\\
-          &               &                     & $A.sc$ & $=$ & $B.sc$\\
+      $A$ & $\rightarrow$ &  $B$ & $A.sb$ & $=$ & $B.sb$\\
+          &               &      & $A.sc$ & $=$ & $B.sc$\\
       \hline
       $B$ & $\rightarrow$ & \lstinline[]$b$ $B_1$ & $B.sb$ & $=$ & $B_1.sb + 1$\\
           &               &                       & $B.sc$ & $=$ & $B_1.sc$\\
@@ -33,5 +33,63 @@
       \hline
   \end{tabular}
 \end{center}
+
+\pagebreak
+
+Vérification positive avec le mot $bcc \in L_1$
+
+\begin{center}
+  \begin{tikzpicture}
+    [
+    sibling distance=2em, level distance=40pt]
+
+    \tikzset{edge from parent/.style={draw, edge from parent path=
+    {(\tikzparentnode) -- (\tikzchildnode)}}}
+    \Tree 
+    [.$S\tbox{Ok}{True}$ 
+      [.$A\tbox{sb}{1}\tbox{sc}{2}$
+        [.$B\tbox{sb}{1}\tbox{sc}{2}$
+          b
+          [.$B_1\tbox{sb}{0}\tbox{sc}{2}$
+            [.$C_1\tbox{sc}{2}$
+              c
+              [.$C_2\tbox{sc}{1}$
+                c
+                [.$C_3\tbox{sc}{0}$
+                  $\epsilon$
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    ]
+  \end{tikzpicture}
+\end{center}
+
+Vérification négative avec le mot $\epsilon \notin L_1$
+\begin{center}
+  \begin{tikzpicture}
+    [
+    sibling distance=2em, level distance=40pt]
+
+    \tikzset{edge from parent/.style={draw, edge from parent path=
+    {(\tikzparentnode) -- (\tikzchildnode)}}}
+    \Tree 
+    [.$S\tbox{Ok}{False}$ 
+      [.$A\tbox{sb}{0}\tbox{sc}{0}$
+        [.$B\tbox{sb}{0}\tbox{sc}{0}$
+          [.$C_1\tbox{sc}{0}$
+            $\epsilon$
+          ]
+        ]
+      ]
+    ]
+  \end{tikzpicture}
+\end{center}
+
+\pagebreak
+
+\subsection*{(b)}
 
 \end{document}
