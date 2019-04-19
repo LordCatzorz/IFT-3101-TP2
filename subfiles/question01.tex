@@ -186,7 +186,7 @@ Vérification positive avec le mot $\epsilon \notin L_3$
 \begin{center}
   \begin{tikzpicture}
     [
-    sibling distance=1em, level distance=25pt]
+    sibling distance=2em, level distance=40pt]
 
     \tikzset{edge from parent/.style={,draw, edge from parent path=
     {(\tikzparentnode) -- (\tikzchildnode)}}}
@@ -205,7 +205,11 @@ Vérification positive avec le mot $\epsilon \notin L_3$
 
 Vérification positive avec le mot $aaabbbbbbbbbbbbc \in L_3$
 
+\vfill
 {\hfill [Voir page suivante] \hfill}
+
+\vfill
+\pagebreak
 
 {\hspace{-3cm}
   \begin{tikzpicture}
@@ -278,11 +282,17 @@ Vérification positive avec le mot $aaabbbbbbbbbbbbc \in L_3$
 
 \subsection*{(d)}
 
-Avec
+Avec\\
+(hpc = previous char),\\ 
+(hpc = previous previous char),\\ 
+(hn = number of \lstinline{bac} occurence),\\
 (hfp = fibonnaci previous),\\ 
-(hfpp = fibonnaci previous previous),\\
-(hfc = current fibonnaci),\\
-(hn = number of \lstinline{bac} occurence)
+(hfc = current fibonnaci value)\\
+
+\vfill
+  {\hfill [Voir page suivante] \hfill}
+\vfill
+
 \begin{center}
   \begin{tabular}{|rcl|rcl|}
       \hline
@@ -293,36 +303,32 @@ Avec
       $S$ & $\rightarrow$ & $A$ & $A.hpc$  & $:=$ & \lstinline[]$""$\\
           &               &     & $A.hppc$ & $:=$ & \lstinline[]$""$\\
           &               &     & $A.hn$   & $:=$ & $0$\\
-          &               &     & $A.hfp$  & $:=$ & $1$\\
-          &               &     & $A.hfp2$ & $:=$ & $0$\\
           &               &     & $A.hfc$  & $:=$ & $0$\\
+          &               &     & $A.hfp$  & $:=$ & $1$\\
           &               &     & $S.ok$   & $:=$ & $A.ok$\\
       \hline
       $A$ & $\rightarrow$ & \lstinline[]$a$ $A_1$ & $A_1.hpc$  & $:=$ & \lstinline[]$"a"$\\
           &               &                       & $A_1.hppc$ & $:=$ & $A.hpc$\\
           &               &                       & $A_1.hn$   & $:=$ & $A.hn$\\
-          &               &                       & $A_1.hfp$  & $:=$ & $A.hfp$\\
-          &               &                       & $A_1.hfp2$ & $:=$ & $A.hfp2$\\
           &               &                       & $A_1.hfc$  & $:=$ & $A.hfc$\\
+          &               &                       & $A_1.hfp$  & $:=$ & $A.hfp$\\
           &               &                       & $A.ok$     & $:=$ & $A_1.ok$\\
       \hline
       $A$ & $\rightarrow$ & \lstinline[]$b$ $A_1$ & $A_1.hpc$  & $:=$ & \lstinline[]$"b"$\\
           &               &                       & $A_1.hppc$ & $:=$ & $A.hpc$\\
           &               &                       & $A_1.hn$   & $:=$ & $A.hn$\\
-          &               &                       & $A_1.hfp$  & $:=$ & $A.hfp$\\
-          &               &                       & $A_1.hfp2$ & $:=$ & $A.hfp2$\\
           &               &                       & $A_1.hfc$  & $:=$ & $A.hfc$\\
+          &               &                       & $A_1.hfp$  & $:=$ & $A.hfp$\\
           &               &                       & $A.ok$     & $:=$ & $A_1.ok$\\
       \hline
       $A$ & $\rightarrow$ & \lstinline[]$c$ $A_1$ & $A_1.hpc$  & $:=$ & \lstinline[]$"c"$\\
           &               &                       & $A_1.hppc$ & $:=$ & $A.hpc$\\
           &               &                       & $A_1.hn$   & $:=$ & \lstinline[]$if $$A.hpc$\lstinline[]$ = "a" and $$A.hppc$\lstinline[]$ = "b"$\\
           &               &                       &            &      & \lstinline[]$then $$A.hn + 1$\lstinline[]$ else $$A.hn$ \\
-          &               &                       & $A_1.hfp$  & $:=$ & \lstinline[]$if $$A_1.hn$\lstinline[]$ > $$A_1.hfc$\\
-          &               &                       &            &      & \lstinline[]$then $$A_1.hfc$\lstinline[]$ else $$A_1.hfp$\\
-          &               &                       & $A_1.hfc$  & $:=$ & \lstinline[]$if $$A_1.hn$\lstinline[]$ > $$A_1.hfc$ \\
-          &               &                       &            &      & \lstinline[]$then $$A_1.hfp + A_1.hfp2$\lstinline[]$ else $$A_1.hfc$\\
-          &               &                       & $A_1.hfp2$ & $:=$ & $A_1.hfp$\\
+          &               &                       & $A_1.hfc$  & $:=$ & \lstinline[]$if $$A_1.hn$\lstinline[]$ > $$A.hfc$ \\
+          &               &                       &            &      & \lstinline[]$then $$A.hfp + A.hfc$\lstinline[]$ else $$A.hfc$\\
+          &               &                       & $A_1.hfp$  & $:=$ & \lstinline[]$if $$A_1.hn$\lstinline[]$ > $$A.hfc$\\
+          &               &                       &            &      & \lstinline[]$then $$max(1, A.hfc)$\lstinline[]$ else $$A.hfp$\\
           &               &                       & $A.ok$     & $:=$ & $A_1.ok$\\
       \hline
       $A$ & $\rightarrow$ & $\epsilon$ & $A.ok$ & $:=$ & $A.hfc = A.hn$\\
@@ -330,4 +336,82 @@ Avec
   \end{tabular}
 \end{center}
 
+Vérification positive avec le mot $\epsilon \in L_4$
+\begin{center}
+  \begin{tikzpicture}
+    [
+    sibling distance=2em, level distance=25pt]
+
+    \tikzset{edge from parent/.style={,draw, edge from parent path=
+    {(\tikzparentnode) -- (\tikzchildnode)}}}
+    \Tree 
+    [.$S\tbox{ok}{true}$ 
+      [.$\tbox{hpc}{""}\tbox{hppc}{""}\tbox{hn}{0}\tbox{hfc}{0}\tbox{hfp}{1}A\tbox{ok}{true}$
+        $\epsilon$
+      ]
+    ]
+  \end{tikzpicture}
+\end{center}
+
+
+\begin{sidewaysfigure}
+Vérification negative avec le mot $bacbacbacbac \notin L_4$
+
+{
+  \hspace{-3cm}
+  \resizebox{22.5cm}{16cm}
+  {
+    \begin{tikzpicture}
+      [
+      sibling distance=1em, level distance=25pt]
+
+      \tikzset{edge from parent/.style={,draw, edge from parent path=
+      {(\tikzparentnode) -- (\tikzchildnode)}}}
+      \Tree 
+      [.$S\tbox{ok}{false}$ 
+        [.$\tbox{hpc}{""}\tbox{hppc}{""}\tbox{hn}{0}\tbox{hfc}{0}\tbox{hfp}{1}A\tbox{ok}{false}$
+          b
+          [.$\tbox{hpc}{"b"}\tbox{hppc}{""}\tbox{hn}{0}\tbox{hfc}{0}\tbox{hfp}{1}A\tbox{ok}{false}$
+            a
+            [.$\tbox{hpc}{"a"}\tbox{hppc}{"b"}\tbox{hn}{0}\tbox{hfc}{0}\tbox{hfp}{1}A\tbox{ok}{false}$
+              c
+              [.$\tbox{hpc}{"c"}\tbox{hppc}{"a"}\tbox{hn}{1}\tbox{hfc}{1}\tbox{hfp}{1}A\tbox{ok}{false}$
+                b
+                [.$\tbox{hpc}{"b"}\tbox{hppc}{"c"}\tbox{hn}{1}\tbox{hfc}{1}\tbox{hfp}{1}A\tbox{ok}{false}$
+                  a
+                  [.$\tbox{hpc}{"a"}\tbox{hppc}{"b"}\tbox{hn}{1}\tbox{hfc}{1}\tbox{hfp}{1}A\tbox{ok}{false}$
+                    c
+                    [.$\tbox{hpc}{"c"}\tbox{hppc}{"a"}\tbox{hn}{2}\tbox{hfc}{2}\tbox{hfp}{1}A\tbox{ok}{false}$
+                      b
+                      [.$\tbox{hpc}{"b"}\tbox{hppc}{"c"}\tbox{hn}{2}\tbox{hfc}{2}\tbox{hfp}{1}A\tbox{ok}{false}$
+                        a
+                        [.$\tbox{hpc}{"a"}\tbox{hppc}{"b"}\tbox{hn}{2}\tbox{hfc}{2}\tbox{hfp}{1}A\tbox{ok}{false}$
+                          c
+                          [.$\tbox{hpc}{"c"}\tbox{hppc}{"a"}\tbox{hn}{3}\tbox{hfc}{3}\tbox{hfp}{2}A\tbox{ok}{false}$
+                            b
+                            [.$\tbox{hpc}{"b"}\tbox{hppc}{"c"}\tbox{hn}{3}\tbox{hfc}{3}\tbox{hfp}{2}A\tbox{ok}{false}$
+                              a
+                              [.$\tbox{hpc}{"a"}\tbox{hppc}{"b"}\tbox{hn}{3}\tbox{hfc}{3}\tbox{hfp}{2}A\tbox{ok}{false}$
+                                c
+                                [.$\tbox{hpc}{"c"}\tbox{hppc}{"a"}\tbox{hn}{4}\tbox{hfc}{5}\tbox{hfp}{3}A\tbox{ok}{false}$
+                                  $\epsilon$
+                                ]
+                              ]
+                            ]
+                          ]
+                        ]
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ]
+      ]
+    \end{tikzpicture}
+  }
+}
+
+\end{sidewaysfigure}
 \end{document}
