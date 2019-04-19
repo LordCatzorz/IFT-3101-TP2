@@ -414,4 +414,83 @@ Vérification negative avec le mot $bacbacbacbac \notin L_4$
 }
 
 \end{sidewaysfigure}
+
+
+\subsection*{(e)}
+
+\begin{center}
+  \begin{tabular}{|rcl|rcl|}
+      \hline
+      \multicolumn{3}{|c}{\bf Productions} &
+      \multicolumn{3}{|c|}{\bf Règles Sémantiques} \\
+      \hline
+      \hline
+      $S$ & $\rightarrow$ & \lstinline[]$a$ $S_1$  & $S.gen$ & $:=$ & \lstinline[]$"00"$$\cdot S_1.cod$\\
+          &               &                        & $S.cod$   & $:=$ & $T.cod$\\
+          &               &                        & $S.ok$    & $:=$ & $S.gen = S.cod$\\
+      \hline
+      $S$ & $\rightarrow$ & \lstinline[]$b$ $S_1$  & $S.gen$ & $:=$ & \lstinline[]$"010"$$\cdot S_1.cod$\\
+          &               &                        & $S.cod$   & $:=$ & $T.cod$\\
+          &               &                        & $S.ok$    & $:=$ & $S.gen = S.cod$\\
+      \hline
+      $S$ & $\rightarrow$ & \lstinline[]$c$ $S_1$  & $S.gen$ & $:=$ & \lstinline[]$"001"$$\cdot S_1.cod$\\
+          &               &                        & $S.cod$   & $:=$ & $T.cod$\\
+          &               &                        & $S.ok$    & $:=$ & $S.gen = S.cod$\\
+      \hline
+      $S$ & $\rightarrow$ & \lstinline[]$d$ $S_1$  & $S.gen$ & $:=$ & \lstinline[]$"1"$$\cdot S_1.cod$\\
+          &               &                        & $S.cod$ & $:=$ & $T.cod$\\
+          &               &                        & $S.ok$  & $:=$ & $S.gen = S.cod$\\
+      \hline
+      $S$ & $\rightarrow$ & \lstinline[]$:$ $T$    & $S.gen$ & $:=$ & \lstinline[]$""$\\
+          &               &                        & $S.cod$ & $:=$ & $T.cod$\\
+          &               &                        & $S.ok$  & $:=$ & $S.gen = S.cod$\\
+      \hline
+      $T$ & $\rightarrow$ & \lstinline[]$0$ $T_1$  & $T.cod$ & $:=$ & \lstinline[]$"0"$$\cdot T_1.cod$\\
+      \hline
+      $T$ & $\rightarrow$ & \lstinline[]$1$ $T_1$  & $T.cod$ & $:=$ & \lstinline[]$"1"$$\cdot T_1.cod$\\
+      \hline
+      $T$ & $\rightarrow$ & $\epsilon$ & $T.cod$ & $:=$ & \lstinline[]$""$\\
+      \hline
+  \end{tabular}
+\end{center}
+
+Vérification positive avec le mot \lstinline[]$:$ $ \in L_5$
+\begin{center}
+  \begin{tikzpicture}
+    [
+    sibling distance=2em, level distance=30pt]
+
+    \tikzset{edge from parent/.style={,draw, edge from parent path=
+    {(\tikzparentnode) -- (\tikzchildnode)}}}
+    \Tree 
+    [.$S\tbox{ok}{true}\tbox{gen}{""}\tbox{cod}{""}$ 
+      :
+      [.$T\tbox{cod}{""}$
+        $\epsilon$
+      ]
+    ]
+  \end{tikzpicture}
+\end{center}
+
+Vérification négative avec le mot \lstinline[]$a:$ $ \notin L_5$
+\begin{center}
+  \begin{tikzpicture}
+    [
+    sibling distance=2em, level distance=30pt]
+
+    \tikzset{edge from parent/.style={,draw, edge from parent path=
+    {(\tikzparentnode) -- (\tikzchildnode)}}}
+    \Tree 
+    [.$S\tbox{ok}{false}\tbox{gen}{"a"}\tbox{cod}{""}$ 
+      a
+      [.$S\tbox{ok}{true}\tbox{gen}{""}\tbox{cod}{""}$ 
+        :
+        [.$T\tbox{cod}{""}$
+          $\epsilon$
+        ]
+      ]
+    ]
+  \end{tikzpicture}
+\end{center}
+
 \end{document}
