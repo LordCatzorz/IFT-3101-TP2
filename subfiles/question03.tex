@@ -11,15 +11,16 @@
       $X$ & $\rightarrow$ & {\bf ou} $T$ &{\bf\{} $X_1.i$ & $:=$ & $X.i \vee T.b$ {\bf\}}\\
           &               & $X_1$        &{\bf\{} $X.b$   & $:=$ & $X_1.b$ {\bf\}}\\
       $X$ & $\rightarrow$ & $\epsilon$   &{\bf\{} $X.b$   & $:=$ & $X.i$ {\bf\}}\\
-      % $E$ & $\rightarrow$ & $E_1$ {\bf ou} $T$ & {\bf\{} $E.b$ & $:=$ & $E_1.b \vee T.b$ {\bf\}}\\
-      %     & $|$           & $T$                & {\bf\{} $E.b$ & $:=$ & $T.b$ {\bf\}}\\
-
-      $T$ & $\rightarrow$ & $T_1$ {\bf et} $F$ & {\bf\{} $T.b$ & $:=$ & $T_1.b \wedge F.b$ {\bf\}}\\
-          & $|$           & $F$                & {\bf\{} $T.b$ & $:=$ & $F.b$ {\bf\}}\\
-
+      \\
+      $T$ & $\rightarrow$ & $F$          &{\bf\{} $Y.i$   & $:=$ & $F.b$ {\bf\}}\\
+          &               & $Y$          &{\bf\{} $T.b$   & $:=$ & $Y.b$ {\bf\}}\\
+      $Y$ & $\rightarrow$ & {\bf et} $F$ &{\bf\{} $Y_1.i$ & $:=$ & $Y.i \wedge F.b$ {\bf\}}\\
+          &               & $Y_1$        &{\bf\{} $Y.b$   & $:=$ & $Y_1.b$ {\bf\}}\\
+      $Y$ & $\rightarrow$ & $\epsilon$   &{\bf\{} $Y.b$   & $:=$ & $Y.i$ {\bf\}}\\
+      \\
       $F$ & $\rightarrow$ & {\bf non} $F_1$    & {\bf\{} $F.b$ & $:=$ & $\neg F_1.b$ {\bf\}}\\
           & $|$           & $A$                & {\bf\{} $F.b$ & $:=$ & $A.b$ {\bf\}}\\
-
+      \\
       $A$ & $\rightarrow$ & ( $E$ )            & {\bf\{} $A.b$ & $:=$ & $E.b$ {\bf\}}\\
           & $|$           & {\bf faux}         & {\bf\{} $A.b$ & $:=$ & \lstinline[]$faux$  {\bf\}}\\
           & $|$           & {\bf vrai}         & {\bf\{} $A.b$ & $:=$ & \lstinline[]$vrai$  {\bf\}}\\
