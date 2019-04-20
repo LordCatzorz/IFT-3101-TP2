@@ -5,8 +5,14 @@
 
 \begin{center}
   \begin{tabular}{rcllcl}
-      $E$ & $\rightarrow$ & $E_1$ {\bf ou} $T$ & {\bf\{} $E.b$ & $:=$ & $E_1.b \vee T.b$ {\bf\}}\\
-          & $|$           & $T$                & {\bf\{} $E.b$ & $:=$ & $T.b$ {\bf\}}\\
+
+      $E$ & $\rightarrow$ & $T$          &{\bf\{} $X.i$   & $:=$ & $T.b$ {\bf\}}\\
+          &               & $X$          &{\bf\{} $E.b$   & $:=$ & $X.b$ {\bf\}}\\
+      $X$ & $\rightarrow$ & {\bf ou} $T$ &{\bf\{} $X_1.i$ & $:=$ & $X.i \vee T.b$ {\bf\}}\\
+          &               & $X_1$        &{\bf\{} $X.b$   & $:=$ & $X_1.b$ {\bf\}}\\
+      $X$ & $\rightarrow$ & $\epsilon$   &{\bf\{} $X.b$   & $:=$ & $X.i$ {\bf\}}\\
+      % $E$ & $\rightarrow$ & $E_1$ {\bf ou} $T$ & {\bf\{} $E.b$ & $:=$ & $E_1.b \vee T.b$ {\bf\}}\\
+      %     & $|$           & $T$                & {\bf\{} $E.b$ & $:=$ & $T.b$ {\bf\}}\\
 
       $T$ & $\rightarrow$ & $T_1$ {\bf et} $F$ & {\bf\{} $T.b$ & $:=$ & $T_1.b \wedge F.b$ {\bf\}}\\
           & $|$           & $F$                & {\bf\{} $T.b$ & $:=$ & $F.b$ {\bf\}}\\
