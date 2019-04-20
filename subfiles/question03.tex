@@ -3,4 +3,22 @@
 \begin{document}
 \section*{Question 3}
 
+\begin{center}
+  \begin{tabular}{rcllcl}
+      $E$ & $\rightarrow$ & $E_1$ {\bf ou} $T$ & {\bf\{} $E.b$ & $:=$ & $E_1.b \vee T.b$ {\bf\}}\\
+          & $|$           & $T$                & {\bf\{} $E.b$ & $:=$ & $T.b$ {\bf\}}\\
+
+      $T$ & $\rightarrow$ & $T_1$ {\bf et} $F$ & {\bf\{} $T.b$ & $:=$ & $T_1.b \wedge F.b$ {\bf\}}\\
+          & $|$           & $F$                & {\bf\{} $T.b$ & $:=$ & $F.b$ {\bf\}}\\
+
+      $F$ & $\rightarrow$ & {\bf non} $F_1$    & {\bf\{} $F.b$ & $:=$ & $\neg F_1.b$ {\bf\}}\\
+          & $|$           & $A$                & {\bf\{} $F.b$ & $:=$ & $A.b$ {\bf\}}\\
+
+      $A$ & $\rightarrow$ & ( $E$ )            & {\bf\{} $A.b$ & $:=$ & $E.b$ {\bf\}}\\
+          & $|$           & {\bf faux}         & {\bf\{} $A.b$ & $:=$ & \lstinline[]$faux$  {\bf\}}\\
+          & $|$           & {\bf vrai}         & {\bf\{} $A.b$ & $:=$ & \lstinline[]$vrai$  {\bf\}}\\
+          & $|$           & {\bf id}           & {\bf\{} $A.b$ & $:=$ & \lstinline[]$get_value$ ({\bf id}$.entry$) {\bf\}}\\
+  \end{tabular}
+\end{center}
+
 \end{document}
