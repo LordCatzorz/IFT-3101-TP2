@@ -6,7 +6,7 @@
 
 
 {
-  \hspace{-2cm}
+  \hspace{-3cm}
   \begin{tabular}{|rcl|rcl|}
       \hline
       \multicolumn{3}{|c}{\bf Productions} &
@@ -27,19 +27,6 @@
           &               &                                                                                       & $T.okn$   & $:=$ & $T_1.maxn = T_2.maxn$\\
           &               &                                                                                       &           &      & $\wedge$ $T_1.okn$ $\wedge$ $T_2.okn$\\
       \hline
-      \hline
-      \multicolumn{6}{|c|}{[Voir page suivante]} \\
-      \hline
-  \end{tabular}
-}
-
-{
-  \hspace{-2cm}
-  \begin{tabular}{|rcl|rcl|}
-    \hline
-    \multicolumn{6}{|c|}{[Voir page précédente]} \\
-    \hline
-    \hline
     $T$ & $\rightarrow$ & \lstinline[]$[$ $T_1$ \lstinline[]$,$ {\bf num$_1$} \lstinline[]$,$  $T_2$ \lstinline[]$,$ {\bf num$_2$} \lstinline[]$,$ $T_3$ \lstinline[]$]$  & $T_1.hniv$ & $:=$ & $T.hniv + 1$ \\
         &               &                                                                                                                                                 & $T_2.hniv$ & $:=$ & $T.hniv + 1$\\
         &               &                                                                                                                                                 & $T_3.hniv$ & $:=$ & $T.hniv + 1$\\
@@ -52,12 +39,10 @@
         &               &                                                                                                                                                 &           &      & $\wedge$ ${\bf num}_1.lexval \leq T_2.minv$\\
         &               &                                                                                                                                                 &           &      & $\wedge$ $T_2.maxv \leq {\bf num}_2.lexval$ \\
         &               &                                                                                                                                                 &           &      & $\wedge$ ${\bf num}_2.lexval \leq T_3.minv$\\
-        &               &                                                                                                                                                 &           &      & $\wedge$ $T_1.okv$ $\wedge$ $T_2.okv$\\
-        &               &                                                                                                                                                 &           &      & $\wedge$ $T_3.okv$\\
+        &               &                                                                                                                                                 &           &      & $\wedge$ $T_1.okv$ $\wedge$ $T_2.okv$ $\wedge$ $T_3.okv$\\
         &               &                                                                                                                                                 & $T.okn$   & $:=$ & $T_1.maxn = T_2.maxn$\\
         &               &                                                                                                                                                 &           &      & $\wedge$ $T_2.maxn = T_3.maxn$\\
-        &               &                                                                                                                                                 &           &      & $\wedge$ $T_1.okn$ $\wedge$ $T_2.okn$\\
-        &               &                                                                                                                                                 &           &      & $\wedge$ $T_3.okn$\\
+        &               &                                                                                                                                                 &           &      & $\wedge$ $T_1.okn$ $\wedge$ $T_2.okn$ $\wedge$ $T_3.okn$\\
     \hline
     $T$ & $\rightarrow$ & \lstinline[]$[]$  & $T.minv$ & $:=$ & $\infty$\\
         &               &                   & $T.maxv$ & $:=$ & $-\infty$\\
