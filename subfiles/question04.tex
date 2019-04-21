@@ -3,5 +3,43 @@
 
 \begin{document}
 \section*{Question 4}
+\begin{center}
+  \begin{tabular}{|rcl|rcl|}
+      \hline
+      \multicolumn{3}{|c}{\bf Productions} &
+      \multicolumn{3}{|c|}{\bf Règles Sémantiques} \\
+      \hline
+      \hline
+      $S$ & $\rightarrow$ & {\bf swith} $E$ {\bf with} $C$ & $C.exit$  & $:=$ & {\bf new} Label\\
+          &               &                                & $C.temp$  & $:=$ & $E.place$\\
+          &               &                                & $S.code$  & $:=$ & $E.code || C.code$\\
+      &&&&&\\
+      $C$ & $\rightarrow$ & {\bf case} $K$ $S$ $;$ $C_1$ & $C_1.exit$ & $:=$ & $C.exit$\\
+          &               &                              & $K.temp$   & $:=$ & $C.temp$\\
+          &               &                              & $K.begin$  & $:=$ & {\bf new} Label\\
+          &               &                              & $K.end$    & $:=$ & {\bf new} Label\\
+          &               &                              & $C.code$   & $:=$ & $K.code$ || $S.code$\\
+          &               &                              &            &      & || $gen($'{\bf goto}' $C.exit) $\\
+          &               &                              &            &      & || $gen(K.end $ '{\bf :}'$)$ \\
+          &               &                              &            &      & || $C_1.code $  \\
+      &&&&&\\
+      $C$ & $\rightarrow$ & {\bf else} $S$ & $C.code$ & $:=$ & $S.code$ \\
+      &&&&&\\
+      $C$ & $\rightarrow$ & {\bf end} & $C.code$ & $:=$ & $gen(C.exit$ '{\bf :}'$)$ \\
+      &&&&&\\
+      $K$ & $\rightarrow$ & {\bf num} $,$ $K_1$ & $K_1.begin$ & $:=$ & $K.begin$ \\
+          &               &                     & $K_1.end$   & $:=$ & $K.end$\\
+          &               &                     & $K_1.temp$  & $:=$ & $K.temp$\\
+          &               &                     & $K.code$    & $:=$ & $gen($ '{\bf if}' $K.temp$ '{\bf =}' \\
+          &               &                     &             &      & {\bf num}$.val$ '{\bf goto}' $K.begin$ $)$\\
+          &               &                     &             &      & || $K_1.code$\\
+      &&&&&\\
+      $K$ & $\rightarrow$ & {\bf num :} & $K.code$    & $:=$ & $gen($ '{\bf if}' $K.temp$ '{\bf =}' \\
+          &               &             &             &      & {\bf num}$.val$ '{\bf goto}' $K.begin$ $)$\\
+          &               &             &             &      & || $gen($'{\bf goto}' $K.end) $\\
+          &               &             &             &      & || $gen(K.begin $ '{\bf :}'$)$\\
+      \hline
+  \end{tabular}
+\end{center}
 
 \end{document}
