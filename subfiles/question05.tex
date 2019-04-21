@@ -4,4 +4,28 @@
 \begin{document}
 \section*{Question 5}
 
+\begin{tikzpicture}
+  [
+  sibling distance=2em, level distance=40pt]
+
+  \tikzset{edge from parent/.style={,draw, edge from parent path=
+  {(\tikzparentnode) -- (\tikzchildnode)}}}
+  \Tree 
+  [.$main$ 
+    [.$fib(4)$
+      [.$fib(3)$
+        [.$fib(2)$
+          $fib(1)$
+          $fib(0)$
+        ]
+        $fib(1)$
+      ]
+      [.$fib(2)$
+        $fib(1)$
+        $fib(0)$
+      ]
+    ]
+  ]
+\end{tikzpicture}
+
 \end{document}
