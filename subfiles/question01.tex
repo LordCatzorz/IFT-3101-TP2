@@ -158,7 +158,7 @@ Vérification positive avec le mot $aa \notin L_2$
       \multicolumn{3}{|c|}{\bf Règles Sémantiques} \\
       \hline
       \hline
-      $S$ & $\rightarrow$ & $A$ & $S.ok$ & $:=$ & $(247 + 12 * A.si = 23 * A.si + 7 * A.sk)$\\
+      $S$ & $\rightarrow$ & $A$ & $S.ok$ & $:=$ & $(247 + 12 \cdot A.si = 23 \cdot A.si + 7 \cdot A.sk)$\\
       \hline
       $A$ & $\rightarrow$ & \lstinline[]$a$ $A_1$ & $A.si$ & $:=$ & $A_1.si + 1$\\
           &               &                       & $A.sj$ & $:=$ & $A_1.sj$\\
@@ -182,7 +182,7 @@ Vérification positive avec le mot $aa \notin L_2$
 \end{center}
 
 
-Vérification positive avec le mot $\epsilon \notin L_3$
+Vérification négative avec le mot $\epsilon \notin L_3$
 \begin{center}
   \begin{tikzpicture}
     [
@@ -287,12 +287,7 @@ Avec\\
 (hpc = previous previous char),\\ 
 (hn = number of \lstinline{bac} occurence),\\
 (hfp = fibonnaci previous),\\ 
-(hfc = current fibonnaci value)\\
-
-\vfill
-  {\hfill [Voir page suivante] \hfill}
-\vfill
-
+(hfc = current fibonnaci value)
 \begin{center}
   \begin{tabular}{|rcl|rcl|}
       \hline
@@ -353,6 +348,11 @@ Vérification positive avec le mot $\epsilon \in L_4$
   \end{tikzpicture}
 \end{center}
 
+\begin{center}
+  \vfill
+  [Voir page suivante]
+  \vfill
+\end{center}
 
 \begin{sidewaysfigure}
 Vérification negative avec le mot $bacbacbacbac \notin L_4$
@@ -416,6 +416,7 @@ Vérification negative avec le mot $bacbacbacbac \notin L_4$
 \end{sidewaysfigure}
 
 
+\pagebreak
 \subsection*{(e)}
 
 \begin{center}
